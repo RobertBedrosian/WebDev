@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Homepage</title>
+	<meta charset="utf-8">
+	<script type="text/javascript">
+		function start()
+		{
+			document.getElementById("pass2").addEventListener("keyup",passMatch,false);
+		}
+		function passMatch()
+		{
+			var pass1=document.getElementById("pass1").value;
+			var pass2=document.getElementById("pass2").value;
+			var passnomatch=document.getElementById("nomatch");
+			if (pass1!=pass2)
+			{
+				passnomatch.innerHTML="passwords dont match";
+				passnomatch.style.color="red";
+			}
+			else
+				passnomatch.innerHTML="";
+
+		}
+		window.addEventListener("load", start, false);
+	</script>
+</head>
+<body>
+	<form method="post" action="login.php">
+		<h1>Registered Users</h1>
+		<p><label>Username <input type="text" name="username"></label></p>
+		<p><label>password <input type="text" name="password"></label></p>
+		<input type="submit" name="Log in">
+		
+	</form>
+	<form method="post" action="signup.php">
+		<h1>New users</h1>
+		<p><label>First name <input type="text" name="firstname"></label></p>
+		<p><label>Last name <input type="text" name="lastname"></label></p>
+		<p><label>Phone <input type="text" name="phone"></label></p>
+		<p><label>Email <input type="text" name="email"></label></p>
+		<p><label>Username <input type="text" name="username"></label></p>
+		<p><label>Password <input id="pass1" type="Password" name="password"></label></p>
+		<p><label>Retype Password <input id="pass2" type="Password" name="secondpass"><span id="nomatch"> </span></label></p>
+		<input type="submit" name="submit" value="Sign up">
+	</form>
+</body>
+</html>
