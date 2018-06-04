@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<style type="text/css">
+		li {display: inline; }
+		img.dice {display: none;}
+	</style>
+	<script type="text/javascript">
+		/*
+		function square ( x )
+		{
+			var y=x*x;
+			return y;
+		}
+		for (var i=1; i <=10; i++)
+		{
+			document.writeln("<p>square value of " + i + " is " + square(i) + "</p>");
+		}
+		*/
+		/*
+		var input1=window.prompt("enter a floating point number: ");
+		var input2=window.prompt("enter a floating point number: ");
+		var input3=window.prompt("enter a floating point number: ");
+		var num1 =parseFloat(input1);
+		var num2 =parseFloat(input2);
+		var num3 =parseFloat(input3);
+		//logic error would be placing var x; in function max, overriding function's parameter x. x would be then undefined.
+		function maximum(x, y, z)
+		{
+			 	var a =Math.max(x, y);
+			 	return Math.max(a, z);
+		}
+		document.writeln("<p> the max of " + input1 + ", " + input2 +", " + input3 +  " is " + maximum(num1, num2, num3) + " </p>");
+		
+		//random goes from 0-0.9 so *6 goes from 0-5.6, then add 1 goes from 1-6.6, floor goes from 1-6
+		var x=Math.floor(Math.random() * 6 + 1);
+		*/
+		/*
+		var x;
+		document.writeln("<ul>");
+		for ( var i =1; i<= 30; i++)
+		{
+			x=Math.floor(Math.random() * 6 + 1);
+			document.writeln("<li>" + x +"</li>");
+		}
+		document.writeln("</ul>");
+		*/
+		//Dice game
+		/*
+		window.addEventListener("load", start, false)
+		var button;
+		var die1Image;
+		function start()
+		{
+			button = document.getElementById("roll");
+			die1Image = document.getElementById("img1");
+			die2Image = document.getElementById("img2");
+			die3Image = document.getElementById("img3");
+			die4Image = document.getElementById("img4");
+			button.addEventListener("click", rolldice, false);
+
+
+			
+		}
+
+		function rolldice()
+		{
+			//style ="display:inline;""
+			randomImage(die1Image);
+			randomImage(die2Image);
+			randomImage(die3Image);
+			randomImage(die4Image);
+
+		}
+
+		function randomImage(imgObj)
+		{
+			var spots=Math.floor(Math.random() * 6 + 1);
+			//"die" + spots + ".png"
+			imgObj.setAttribute("src", "die" + spots + ".png");
+			imgObj.setAttribute("alt", "die face with" + spots + " spot(s)");
+			imgObj.setAttribute("style", "display:inline;");
+
+		}
+		*/
+		var paragraph;
+		var x =1;
+		window.addEventListener("load", start, false);
+		var resultDiv;
+
+		function start()
+		{
+			//if x is declared in function but not set yet, program will look for local x which would be undefined
+			
+			paragraph=document.getElementById("p1");
+			paragraph.innerHTML+=" hello";
+			resultDiv= document.getElementById("results");
+			resultDiv.innerHTML ="x is : " + x;
+			var x = 5;
+			resultDiv.innerHTML ="<br> start local x is : " + x;
+			functionA();
+			functionB();
+
+		}
+		function functionA()
+		{
+			var x = 7;
+			resultDiv.innerHTML += "<br> functionA local x is : " + x;
+			x++  //changes local, local x defined
+			resultDiv.innerHTML += "<br> functionA local x is : " + x;
+		}
+		function functionB()
+		{
+			resultDiv.innerHTML += "<br> functionB local x is : " + x;
+			x++ //changes global, no local x
+			resultDiv.innerHTML += "<br> functionB local x is : " + x;
+
+		}
+
+	</script>
+</head>
+<body>
+	<!--
+	<form action="#" >
+		<input type="button" name="" id="roll" value="Roll dice">
+	</form>
+	
+	<p>
+		<img id="img1" src="" class="dice">
+		<img id="img2" src="" class="dice">
+		<img id="img3" src="" class="dice">
+		<img id="img4" src="" class="dice">
+	</p>
+	-->
+	<div id="results">
+		
+	</div>
+	<p id="p1">
+		some
+	</p>
+
+</body>
+<footer>
+</footer>
+</html>
